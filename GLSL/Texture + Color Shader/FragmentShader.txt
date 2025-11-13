@@ -1,0 +1,12 @@
+#version 460 core //version
+
+in vec3 vertexColor;	
+in vec2 textureCoord;
+
+out vec4 FragColor; //color output
+
+uniform sampler2D inTexture; //input texture index from code
+
+void main(){
+	FragColor = texture(inTexture, textureCoord) * vec4(vertexColor.xyz, 1);
+}

@@ -1,0 +1,14 @@
+#version 460 core //version
+
+layout (location = 0) in vec3 aPos;    //location is in position 0
+layout (location = 1) in vec3 aColor;  //color    is in position 1
+layout (location = 2) in vec2 aTexture;//texture  is in position 2
+
+out vec3 vertexColor; //output color of vertex
+out vec2 textureCoord;//output texture coords
+
+void main(){
+    gl_Position = vec4(aPos.xyz, 1.0); // output vertex position (for other shaders)
+    vertexColor = aColor;              // output color (for other shaders)
+    textureCoord = aTexture;	       // output texture coords (for other shaders)
+}

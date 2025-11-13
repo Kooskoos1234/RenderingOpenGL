@@ -1,0 +1,9 @@
+#version 460 core //version
+
+in vec3 vertexColor;
+
+out vec4 FragColor; //color output
+
+void main(){
+	FragColor = vec4(vertexColor);
+}

@@ -1,0 +1,16 @@
+#version 460 core //version
+
+layout (location = 0) in vec3 inPos;      //location is in position 0
+layout (location = 1) in vec2 inTexture;  //texture  is in position 1
+
+out vec2 textureCoord; //output texture coords
+
+uniform mat4 transform;
+uniform mat4 view;
+uniform mat4 projection;
+
+void main(){
+    //transform position to world space via transformation, view space via view, and clip space via projection
+    gl_Position = projection * view * transform * vec4(inPos.xyz, 1.0f); // output vertex position (for other shaders)
+    textureCoord = inTexture;	                     			 // output texture coords  (for other shaders)
+}

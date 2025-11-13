@@ -1,0 +1,15 @@
+#version 460 core //version
+
+in vec3 vertexColor;	
+in vec2 textureCoord;
+
+out vec4 FragColor; //color output
+
+uniform float mixValue; //input the percent of the second texture that should be shown
+
+uniform sampler2D inTexture0; //input texture unit index from code
+uniform sampler2D inTexture1; //input texture unit index from code
+
+void main(){
+	FragColor = mix(texture(inTexture0, textureCoord), texture(inTexture1, textureCoord), 0.5f); //mixes the textures; mixValue*100% of inTexture2
+} //at some point, change 0.5f back to mixValue

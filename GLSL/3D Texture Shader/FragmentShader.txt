@@ -1,0 +1,12 @@
+#version 460 core //version
+
+in vec2 textureCoord;
+
+out vec4 FragColor; //color output
+
+uniform sampler2D inTexture0; //input texture unit index from code
+
+
+void main(){
+	FragColor = texture(inTexture0, textureCoord);
+}
